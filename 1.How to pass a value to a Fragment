@@ -1,0 +1,29 @@
+1) use Intent to trigger an Activity who will then inflate a new Fragment/then use "putExtra" to pass a value
+In the original Acitivity:
+        val intent = Intent(this, NewActivity::class.java)
+        intent.putExtra(NewFragment.EXTRA_CITY_NAME, city.name)
+        startActivity(intent)
+
+In the new Activity:
+        if (activity?.intent!!.hasExtra(EXTRA_CITY_NAME)) {
+            updateWeatherForCity(activity!!.intent.getStringExtra(EXTRA_CITY_NAME))
+        }
+  
+  
+2) use supportFragmentManager to directly trigger a new Fragment/then use "arguments" to pass a value   
+In the original Acitivity:
+        val newFragment = NewFragment.newInstance()
+        newFragment.arguments = Bundle().apply {
+            putString(NewFragment.EXTRA_CITY_NAME, city.name)
+        }
+        
+        supportFragmentManager.beginTransaction()
+        .hide(oldFragment)
+        .add(android.R.id.content, newFragment)
+        .addToBackStack(null)
+        .commit()
+        
+In the new Fragment:
+        if (!arguments?.getString(EXTRA_CITY_NAME).isNullOrEmpty()) {
+            updateWeatherForCity(arguments?.getString(EXTRA_CITY_NAME)!!)
+        }
