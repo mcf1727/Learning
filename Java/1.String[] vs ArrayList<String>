@@ -5,10 +5,8 @@
 2. Difference
 - An array String[] cannot expand its size. You can initialize it once giving it a permanent size:
 
-
 String[] myStringArray = new String[20]();
 myStringArray[0] = "Test";
-
 
 - An ArrayList<String> is variable in size. You can add and remove items dynamically:
 
