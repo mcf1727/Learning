@@ -1,4 +1,4 @@
 # Learning
-Learning
+## Learning
 
-Stay hungry, stay foolish
+## Stay hungry, stay foolish
