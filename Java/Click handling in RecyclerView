@@ -1,0 +1,62 @@
+
+```
+public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapterViewHolder> {
+
+    // TODO (3) Create a final private ForecastAdapterOnClickHandler called mClickHandler
+    private final ListItemClickListener mOnClickListener;
+
+    // TODO (1) Add an interface called ForecastAdapterOnClickHandler
+    // TODO (2) Within that interface, define a void method that access a String as a parameter
+    public interface ListItemClickListener {
+        void onListItemClick(String weatherForDay);
+    }
+    
+    // TODO (4) Add a ForecastAdapterOnClickHandler as a parameter to the constructor and store it in mClickHandler
+    public ForecastAdapter(ListItemClickListener clickListener) {
+        mOnClickListener = clickListener;
+    }
+    
+    // TODO (5) Implement OnClickListener in the ForecastAdapterViewHolder class
+    public class ForecastAdapterViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        public final TextView mWeatherTextView;
+
+        public ForecastAdapterViewHolder(View view) {
+            super(view);
+            mWeatherTextView = (TextView) view.findViewById(R.id.tv_weather_data);
+            // TODO (7) Call setOnClickListener on the view passed into the constructor (use 'this' as the OnClickListener)
+            view.setOnClickListener(this);
+        }
+
+        // TODO (6) Override onClick, passing the clicked day's data to mClickHandler via its onClick method
+        @Override
+        public void onClick(View view) {
+            int adapterPosition = getAdapterPosition();
+            String weatherForDay = mWeatherData[adapterPosition];
+            mOnClickListener.onListItemClick(weatherForDay);
+        }
+    }
+}
+
+// TODO (8) Implement ForecastAdapterOnClickHandler from the MainActivity
+public class MainActivity extends AppCompatActivity implements ForecastAdapter.ListItemClickListener {    
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        ...
+        // TODO (11) Pass in 'this' as the ForecastAdapterOnClickHandler
+        mForecastAdapter = new ForecastAdapter(this);
+    }
+
+    // TODO (9) Override ForecastAdapterOnClickHandler's onClick method
+    // TODO (10) Show a Toast when an item is clicked, displaying that item's weather data
+    @Override
+    public void onListItemClick(String weatherForDay) {
+        if (mToast != null) {
+            mToast.cancel();
+        }
+
+        mToast = Toast.makeText(this, weatherForDay, Toast.LENGTH_SHORT);
+        mToast.show();
+    }
+}
+```
