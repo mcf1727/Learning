@@ -1,0 +1,33 @@
+## 1) What is each component responsible for?
+### RecyclerView
+- Recycle the view
+### Adapter
+- Create new items (Creating a ViewHolder object for each RecyclerView item + infating each items view that will be displayed in its onCreateViewHolder function)
+- Populuates the items with data (Binding data from the data source to each item)
+- Returns information (Returning the number of items in the data source)
+### ViewHolder
+- Caches views associated with each item
+
+## 2) Exemple
+```
+public class MainActivity extends AppCompatActivity {
+    private RecyclerView mRecyclerView;
+    private ForecastAdapter mForecastAdapter;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_forecast);
+        
+        mRecyclerView = (RecyclerView) findViewById(R.id.recyclerview_forecast);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(layoutManager);
+        
+        // TODO (40) Use setHasFixedSize(true) on mRecyclerView to designate that all items in the list will have the same size
+        mRecyclerView.setHasFixedSize(true);
+        
+        mForecastAdapter = new ForecastAdapter();
+        mRecyclerView.setAdapter(mForecastAdapter);
+    }
+}
+```
