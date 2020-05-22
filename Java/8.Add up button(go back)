@@ -1,0 +1,18 @@
+## 1) in the Activity
+```
+ @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true); // 给左上角图标的左边加上一个返回的图标 。
+    }
+```
+
+## 2) in AndroidManifest.xml
+```
+<activity
+   android:name=".DetailActivity"
+   android:parentActivityName=".MainActivity"
+</activity>
+```
+
+*[add Toolbar](https://blog.csdn.net/my_tiantian/article/details/77822173)*
