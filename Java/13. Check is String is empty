@@ -1,0 +1,24 @@
+首先，区分空串和null串
+1、 空串""是长度为0的字符串，它有自己的串长度（0）和内容（空），判断一个字符串为空的方法：
+
+  if (str.length() == 0);
+1
+或
+
+if (str.equals(""));
+1
+2、 null串表示目前没有任何对象与该变量关联，检查一个字符串是否为null的方法：
+
+ if (str == null);
+1
+3、检查一个字符串既不是null串也不是空串，多用以下方法判断：
+
+if (str != null && str.length() != 0);
+1
+注意：要先检查str不为null，否则在一个null值上调length()方法会出现错误。
+
+4、使用StringUtils工具类，判断不为null也不是空，如下：
+
+if (StringUtils.isNotBlank(str))；
+1
+注意：StringUtils是org.apache.commons.lang3下的工具类
