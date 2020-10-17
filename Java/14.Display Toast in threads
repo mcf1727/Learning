@@ -1,0 +1,50 @@
+1. 第一种方法：
+
+改写代码前是：
+
+Toast.makeText(getApplicationContext(),"test",Toast.LENGTH_LONG).show();
+
+改写后：
+
+Looper.prepare();
+
+Toast.makeText(getApplicationContext(),"test",Toast.LENGTH_LONG).show();
+
+Looper.loop();
+
+如果不是在主线程中又开启了新线程的话，一般都会碰到这个问题。
+
+原因是在创建新县城的时候默认情况下不会去创建新的MessageQueue。
+
+
+2. 第二种方法：
+
+Handler handler = new Handler() {  
+
+    @Override  
+
+    public void handleMessage(Message msg) {  
+
+        // TODO Auto-generated method stub  
+
+        if (msg.what == 0) {  
+
+            Toast.makeText(getApplicationContext(), "test", Toast.LENGTH_LONG).show();  
+
+        }  
+
+        super.handleMessage(msg);  
+
+    }  
+
+
+
+};  
+
+Message msg = handler.obtainMessage();  
+
+msg.what = 0;  
+
+handler.sendMessage(msg);  
+
+线程里面不能进行UI操作的，可以在线程里面用handler发送信息，然后再显示UI，比如就把你的toast改成handler.sendEmptyMessage()。。
