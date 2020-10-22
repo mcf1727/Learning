@@ -1,0 +1,9 @@
+1. From another activity:
+    @Override
+    public void onClick(View view) {
+        finish();
+    }
+  
+ 
+ 2. From a fragment:
+         getActivity().onBackPressed();
