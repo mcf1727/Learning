@@ -1,0 +1,11 @@
+1. Set from xml file add two property in RecyclerView
+
+app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+app:spanCount="2"
+
+2. In Activity:
+        int numberOfColumns = 1;
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, numberOfColumns);
+        mRecyclerView.setLayoutManager(gridLayoutManager);
+        
+Example: https://stackoverflow.com/questions/40587168/simple-android-grid-example-using-recyclerview-with-gridlayoutmanager-like-the
