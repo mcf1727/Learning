@@ -1,0 +1,23 @@
+    /**
+     *     Save and get ArrayList in SharedPreference
+     */
+
+    public void saveArrayList(ArrayList<String> list, String key){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+        SharedPreferences.Editor editor = prefs.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(list);
+        editor.putString(key, json);
+        editor.apply();     // This line is IMPORTANT !!!
+    }
+
+    public ArrayList<String> getArrayList(String key){
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(activity);
+        Gson gson = new Gson();
+        String json = prefs.getString(key, null);
+        Type type = new TypeToken<ArrayList<String>>() {}.getType();
+        return gson.fromJson(json, type);
+    }
+    
+    
+    https://gist.github.com/WrathChaos/5f39e3ce3874a049d25e2ca8958d18b6
