@@ -9,3 +9,6 @@ https://developer.android.com/training/testing/espresso/idling-resource
 Sample: https://github.com/android/testing-samples/tree/main/ui/espresso/IdlingResourceSample
 first you need to create Idling resource class something like this: https://gist.github.com/7ares/a57e0db5ff3047ba40db5f405adb904b
 in the activity you initialize your retrofit you can do this: https://gist.github.com/7ares/d882e9236f3c8bd80fc86fbac53ee33c
+
+4)CodeLab:
+https://codelabs.developers.google.com/codelabs/android-training-espresso-for-ui-testing/index.html#5
