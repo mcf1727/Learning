@@ -1,0 +1,11 @@
+1) Set up:
+https://developer.android.com/training/testing/set-up-project
+
+2) Interact with recycler view list items
+https://developer.android.com/training/testing/espresso/lists#recycler-view-list-items
+
+3) idling resources:
+https://developer.android.com/training/testing/espresso/idling-resource
+Sample: https://github.com/android/testing-samples/tree/main/ui/espresso/IdlingResourceSample
+first you need to create Idling resource class something like this: https://gist.github.com/7ares/a57e0db5ff3047ba40db5f405adb904b
+in the activity you initialize your retrofit you can do this: https://gist.github.com/7ares/d882e9236f3c8bd80fc86fbac53ee33c
