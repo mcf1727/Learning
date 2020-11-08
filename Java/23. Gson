@@ -1,0 +1,16 @@
+MyObject m;    
+
+@Override
+protected void onRestoreInstanceState(Bundle savedInstanceState) {
+   super.onRestoreInstanceState(savedInstanceState);
+   Gson g = new Gson();
+   m = g.fromJson(savedInstanceState.getString("MyObject"), MyObject.class);
+}
+
+@Override
+protected void onSaveInstanceState(Bundle outState) {
+   super.onSaveInstanceState(outState);
+   Gson g = new Gson();
+   String mm = g.toJson(m);
+   outState.putString("MyObject", mm);
+}
