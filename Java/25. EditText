@@ -1,0 +1,92 @@
+Exemple
+#
+EditText est le widget de saisie de texte standard dans les applications Android. Si l'utilisateur doit entrer du texte dans une application, c'est le principal moyen de le faire.
+
+Éditer le texte
+
+De nombreuses propriétés importantes peuvent être définies pour personnaliser le comportement d'un EditText. Plusieurs d'entre eux sont énumérés ci-dessous. Consultez le guide des champs de texte officiels pour encore plus de détails sur les champs de saisie.
+
+Usage
+
+Un EditText est ajouté à une présentation avec tous les comportements par défaut avec le code XML suivant:
+
+<EditText
+    android:id="@+id/et_simple"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent">
+</EditText>
+Notez qu'un EditText est simplement une mince extension de TextView et hérite de toutes les mêmes propriétés.
+
+Récupération de la valeur
+
+Pour obtenir la valeur du texte entré dans un EditText, procédez comme suit:
+
+EditText simpleEditText = (EditText) findViewById(R.id.et_simple);
+String strValue = simpleEditText.getText().toString();
+Personnalisation de l'entrée supplémentaire
+
+Nous pourrions vouloir limiter l'entrée à une seule ligne de texte (éviter les nouvelles lignes):
+
+<EditText
+  android:singleLine="true"
+  android:lines="1"
+/>
+Vous pouvez limiter les caractères pouvant être saisis dans un champ en utilisant l'attribut digits:
+
+<EditText
+  android:inputType="number"
+  android:digits="01"
+/>
+Cela limiterait les chiffres entrés à seulement "0" et "1". Nous pourrions vouloir limiter le nombre total de caractères avec:
+
+<EditText
+  android:maxLength="5"
+/>
+En utilisant ces propriétés, nous pouvons définir le comportement d'entrée attendu pour les champs de texte.
+
+Réglage des couleurs
+
+Vous pouvez ajuster la couleur d'arrière-plan de mise en évidence du texte sélectionné dans un EditText avec la propriété android:textColorHighlight :
+
+<EditText
+    android:textColorHighlight="#7cff88"
+/>
+Affichage des indicateurs d'espace réservé
+
+Vous souhaiterez peut-être définir l'indicateur pour le contrôle EditText afin d'inviter un utilisateur pour une entrée spécifique avec:
+
+<EditText
+    ...
+    android:hint="@string/my_hint">
+</EditText>
+Astuces
+
+Changer la couleur de la ligne du bas
+
+En supposant que vous utilisez la bibliothèque AppCompat, vous pouvez remplacer les styles colorControlNormal, colorControlActivated et colorControlHighlight:
+
+<style name="Theme.App.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+    <item name="colorControlNormal">#d32f2f</item>
+    <item name="colorControlActivated">#ff5722</item>
+    <item name="colorControlHighlight">#f44336</item>
+</style>
+Si vous ne voyez pas ces styles appliqués dans un DialogFragment, il existe un bogue connu lors de l'utilisation de LayoutInflater passé dans la méthode onCreateView ().
+
+Le problème a déjà été résolu dans la bibliothèque AppCompat v23. Voir ce guide sur la mise à niveau. Une autre solution temporaire consiste à utiliser le composant inflater layout au lieu de celui passé dans la méthode onCreateView ():
+
+public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = getActivity().getLayoutInflater().inflate(R.layout.dialog_fragment, container);
+  }
+Écoute de l'entrée EditText
+
+Consultez les cliffnotes des écouteurs d'événement de base pour savoir comment écouter les modifications apportées à un EditText et effectuer une action lorsque ces modifications se produisent.
+
+Affichage des commentaires sur les étiquettes flottantes
+
+Traditionnellement, EditText masque le message de conseil (expliqué ci-dessus) après que l'utilisateur commence à taper. De plus, tout message d'erreur de validation devait être géré manuellement par le développeur.
+
+Avec TextInputLayout vous pouvez configurer une étiquette flottante pour afficher les indicateurs et les messages d'erreur. Vous pouvez trouver plus de détails ici ..
+
+
+
+https://riptutorial.com/fr/android/example/20585/travailler-avec-edittexts
