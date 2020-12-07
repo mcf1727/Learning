@@ -1,0 +1,9 @@
+- from right to left:
+    <style name="Theme.HappyMeal.Trans" >
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+    in layout:     android:theme="@style/Theme.HappyMeal.Trans"
+
+- from bottom to up:
+https://www.jianshu.com/p/0832e1bf0c0b
