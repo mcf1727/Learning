@@ -1,3 +1,6 @@
 - Codelab: https://developer.android.com/codelabs/exoplayer-intro#2
 
--
+- how to hide system UI: https://stackoverflow.com/questions/37380587/android-how-to-hide-the-system-ui-properly
+enable fullscreen: https://developer.android.com/training/system-ui/immersive
+
+- retain the video position during orientation change: https://knowledge.udacity.com/questions/42558
