@@ -176,3 +176,6 @@ Tips: 调用 TextVeiw 的 setText() 可以设置 TextView 的文字，同理可�
 下面是效果图：
 
 https://zhuanlan.zhihu.com/p/38574935
+
+
+Les 3 méthodes pour gérer un clique sur un bouton: https://developpezvosappsandroid.com/button-onclick-exemple/
